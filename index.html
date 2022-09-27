@@ -20,6 +20,14 @@
     });
     });
   </script>
+  <script>
+    function onClick(e) {
+      e.preventDefault();
+      grecaptcha.enterprise.ready(async () => {
+        const token = await grecaptcha.enterprise.execute('6LcPTjIiAAAAADTDTMR_TeXdGXmCS0V43dGcu5dz', {action: 'LOGIN'});
+      });
+    }
+    </script>
 
   <style>
     .hidden { display: none; }
