@@ -1,0 +1,49 @@
+<div class="ui middle aligned center aligned grid" ng-controller="recoverController" style="margin-top: 5em;">
+    <div class="column">
+        <h2 class="ui red image header">
+            <img src="img/favicon.png" class="image">
+            <div class="content">
+                Recover your password
+            </div>
+        </h2>
+        <form ng-hide="tokenIsValid" class="ui large form" ng-submit="sendRecoveryRequest()">
+            <div class="ui stacked segment">
+                <div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="mail icon"></i>
+                            <input type="text" name="emailAddress" placeholder="Recovery e-mail address"
+                                ng-model="emailAddress">
+                        </div>
+                    </div>
+                    <div class="ui fluid large red submit button" ng-click="sendRecoveryRequest()"
+                        style="margin-top: 1em;" ng-class="{'loading': loading, 'disabled': loading}">SEND RECOVERY
+                        TOKEN
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form ng-if="tokenIsValid" class="ui large form">
+            <div class="ui stacked segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" placeholder="New password" ng-model="$parent.password">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="rePassword" placeholder="Re-type new password" ng-model="$parent.rePassword">
+                        <!-- <div class="ui button"><i class="eye icon"></i></div> -->
+                    </div>
+                </div>
+                <div class="ui fluid large red submit button" ng-click="changePassword()"
+                    ng-class="{'loading': loading, 'disabled': loading}">RESET PASSWORD</div>
+            </div>
+        </form>
+        <div class="ui message">
+            <a href="#!login">Go back to login</a>
+        </div>
+    </div>
+</div>

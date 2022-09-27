@@ -1,0 +1,91 @@
+<div class="ui middle aligned center aligned grid" ng-controller="loginController" style="margin-top: 5em;">
+    <div class="column">
+        <h2 class="ui red image header">
+            <img src="img/favicon.png" class="image">
+            <div class="content">
+                Log in to your account
+            </div>
+        </h2>
+        <form class="ui large form" ng-submit="logIn()">
+            <div class="ui stacked segment">
+                <div ng-hide="loginData" class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="credentials" placeholder="E-mail address / Username"
+                            ng-model="credentials">
+                    </div>
+                </div>
+                <div ng-hide="loginData" class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" placeholder="Password" ng-model="password">
+                    </div>
+                </div>
+                <!-- ReCaptcha -->
+                <div ng-if="loginCount >= 5 && !loginData" style="margin-left: 3em; margin-bottom: 1em;" vc-recaptcha
+                    on-success="setCaptchaResponse(response)" 
+                    on-create="onCaptchaCreate(captchaId)"
+                    key="'6LeMY6IUAAAAAC-Ccy5WQccJFpx7WPZWcvn5rrcK'"></div>
+                <div ng-if="loginData" class="grouped fields" style="text-align: left">
+                    <label>Select 2-factor authentication method:</label>
+                    <div id="auth-methods" ng-repeat="option in options" key="{{ option.value }}"
+                        ng-click="setAuthenticationMethod(option.value)">
+                        <input type="radio" name="auth-methods" value="{{ option.value }}" ng-model="authMethod">&nbsp;
+                        {{ option.name }}<br>
+                    </div>
+                    <div ng-if="authMethod === 'sms' && !authSent" class="ui fluid large red submit button"
+                        ng-click="sendAuthCode()" style="margin-top: 1em;"
+                        ng-class="{'loading': loading, 'disabled': loading}">SEND VERIFICATION
+                        CODE</div>
+                    <div ng-if="loginData && authSent && authMethod === 'sms'" class="field">
+                        <!-- Enter verification code -->
+                        <div class="ui input">
+                            <input type="text" name="authCode" placeholder="Enter verification code"
+                                ng-model="$parent.$parent.authCode">
+                        </div>
+                        <div class="ui fluid large red submit button" ng-click="verify()" style="margin-top: 1em;"
+                            ng-class="{'loading': loading, 'disabled': loading}">VERIFY
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="loginData && authMethod === 'otp'" class="field">
+                    <!-- Enter verification code -->
+                    <div class="ui input">
+                        <input type="text" name="authCode" placeholder="Enter Google OTP code"
+                            ng-model="$parent.authCode">
+                    </div>
+                    <div class="ui fluid large red submit button" ng-click="verify()" style="margin-top: 1em;"
+                        ng-class="{'loading': loading, 'disabled': loading}">VERIFY
+                    </div>
+                </div>
+                <div ng-if="loginData && authMethod === 'fido'" class="field">
+                    <!-- Enter verification code -->
+                    <div class="ui input">
+                        <input type="text" name="fido" placeholder="Plug in your hardware key and press it."
+                            ng-model="$parent.authCode">
+                    </div>
+                    <div class="ui fluid large red submit button" ng-click="verify()" style="margin-top: 1em;"
+                        ng-class="{'loading': loading, 'disabled': loading}">VERIFY
+                    </div>
+                </div>
+                <div ng-if="loginData">
+                    <div class="ui checkbox" ng-click="setRememberMe()">
+                        <input type="checkbox" name="rememberMe" ng-model="$parent.rememberMe">
+                        <label style="cursor: pointer;">Remember me for 24 hours</label>
+                    </div>
+                    <p title="Return to the login from" style="margin-top: 1em; text-align: center; cursor: pointer;"
+                        ng-click="backToLogin()"><a>Go back to login</a></p>
+                </div>
+                <div ng-if="!loginData" class="ui fluid large red submit button" ng-click="logIn()"
+                    ng-class="{'loading': loading, 'disabled': loading}">LOG IN</div>
+                <div ng-hide="loginData" style="margin-top: 1em;">
+                    <a title="Initiate the password recovery process" href="#!recover">Forgot your password?</a>
+                </div>
+            </div>
+            <div class="ui error message"></div>
+        </form>
+        <div class="ui message">
+            Don't have an account? <a href="#!register">Sign Up</a>
+        </div>
+    </div>
+</div>
