@@ -8,7 +8,7 @@ $(function() {
 
 //function that handles AJAX call to PHP file
   let submitForm = () => {
-    let name = $("#name").val();
+    let nome = $("#nome").val();
     let email = $("#email").val();
     let subject = $("#subject").val();
     let message = $("#message").val();
@@ -17,7 +17,7 @@ $(function() {
       type: "POST",
       url: "./contact.php",
       data: {
-        name: name,
+        nome: name,
         email: email,
         subject: subject,
         message: message,

@@ -12,7 +12,7 @@ $verify = json_decode(file_get_contents("https://www.google.com/recaptcha/api/si
 //Value of json key "success"
 $success = $verify["success"];
 
-$name = stripslashes($_POST["name"]);
+$nome = stripslashes($_POST["nome"]);
 $email = stripslashes($_POST["email"]);
 $subject = stripslashes($_POST["subject"]);
 $message = stripslashes($_POST["message"]);
@@ -22,8 +22,8 @@ $headers = "From: " . $email . "\r\n" .
     "X-Mailer: PHP/" . phpversion();
 
 // prepare email body text
-$Body .= "Name: ";
-$Body .= $name;
+$Body .= "Nome: ";
+$Body .= $nome;
 $Body .= "\n";
 
 $Body .= "Message: ";
@@ -39,10 +39,10 @@ if ($success == false) {
     //change email@email.com to your desired recipient
     if (mail("email@email.com", $subject, $Body, $headers)){
       //send successful
-      echo "Recaptcha Success, Mail Sent Successfully";
+      echo "Recaptcha com sucesso, email enviado";
     }else{
       //send failure
-        echo "Mailing Failed";
+        echo "Falha ao enviar mensagem";
       }
 }
 
