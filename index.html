@@ -12,14 +12,30 @@
 
   <title>Formulario exemplo</title>
   <script src="https://www.google.com/recaptcha/api.js"></script>
-  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcPTjIiAAAAADTDTMR_TeXdGXmCS0V43dGcu5dz"></script>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6Le1NDYiAAAAADoWFedVZnRhzXSxtmjocKJR4vk5"></script>
   <script>
-    grecaptcha.enterprise.ready(function() {
-    grecaptcha.enterprise.execute('6LcPTjIiAAAAADTDTMR_TeXdGXmCS0V43dGcu5dz', {action: 'login'}).then(function(token) {
-       ...
+
+    function onSuccess(action_token) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET','YOUR_URL', false);
+      // Attach the action-token to the predefined request header
+      xhr.setRequestHeader("X-Recaptcha-Token", action_token);
+      xhr.send(null);
+    }
+
+    function onError(reason) {
+      alert('Response promise rejected: ' + reason);
+    }
+
+    grecaptcha.enterprise.ready(function () {
+      document.getElementById("execute-button").onclick = () => {
+        grecaptcha.enterprise.execute('6Le1NDYiAAAAADoWFedVZnRhzXSxtmjocKJR4vk5', {
+        }).then(onSuccess, onError);
+      };
     });
-    });
-  </script>
+   </script>
+
+ ```
 
   <style>
     .hidden { display: none; }
