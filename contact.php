@@ -4,7 +4,7 @@
 // Secret key: 6Lf41i8iAAAAANmvvNp6Q16O5RE2-boLTsUENIdZ
 
 $captcha = $_POST["captcha"]; //response data
-$secret = "6Lf41i8iAAAAANmvvNp6Q16O5RE2-boLTsUENIdZ"; //your recaptcha secret
+$secret = "6LcPTjIiAAAAADTDTMR_TeXdGXmCS0V43dGcu5dz"; //your recaptcha secret
 
 //Recaptcha verification and JSON response decode
 $verify = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha), true);
@@ -14,8 +14,8 @@ $success = $verify["success"];
 
 $nome = stripslashes($_POST["nome"]);
 $email = stripslashes($_POST["email"]);
-$subject = stripslashes($_POST["subject"]);
-$message = stripslashes($_POST["message"]);
+$assunto = stripslashes($_POST["assunto"]);
+$mensagem = stripslashes($_POST["mensagem"]);
 
 $headers = "From: " . $email . "\r\n" .
     "Reply-To: " . $email . "\r\n" .
@@ -26,8 +26,8 @@ $Body .= "Nome: ";
 $Body .= $nome;
 $Body .= "\n";
 
-$Body .= "Message: ";
-$Body .= $message;
+$Body .= "Mensagem: ";
+$Body .= $mesagem;
 $Body .= "\n";
 
 if ($success == false) {

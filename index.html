@@ -12,10 +12,10 @@
 
   <title>Formulario exemplo</title>
   <script src="https://www.google.com/recaptcha/api.js"></script>
-  <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lf41i8iAAAAANmvvNp6Q16O5RE2-boLTsUENIdZ"></script>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcPTjIiAAAAADTDTMR_TeXdGXmCS0V43dGcu5dz"></script>
   <script>
     grecaptcha.enterprise.ready(function() {
-    grecaptcha.enterprise.execute('6Lf41i8iAAAAANmvvNp6Q16O5RE2-boLTsUENIdZ', {action: 'login'}).then(function(token) {
+    grecaptcha.enterprise.execute('6LcPTjIiAAAAADTDTMR_TeXdGXmCS0V43dGcu5dz', {action: 'login'}).then(function(token) {
        ...
     });
     });
@@ -30,7 +30,7 @@
       <div class="row containerStyle">
         <div class="col-sm-12">
           <form role="form" id="contactForm">
-            <h1 class="text-center">Formulario</h1>
+            <h1 class="text-center">Formulario Ipnet-Claro</h1>
             <div class="row">
               <div class="col-sm-1"></div>
               <div class="col-sm-5">
@@ -43,14 +43,14 @@
                   <label for="email">Email</label>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="subject" placeholder="Subject" />
+                  <input type="text" class="form-control" id="assunto" placeholder="Assunto" />
                   <label for="subject">Subject</label>
                 </div>
               </div>
               <div class="col-sm-5">
                 <div class="form-group">
-                  <textarea id="message" rows="10" class="form-control messageStyle" placeholder="Message" ></textarea>
-                  <label for="message">Mensagem</label><br /><br />
+                  <textarea id="mensagem" rows="10" class="form-control mensagemStyle" placeholder="Mensagem" ></textarea>
+                  <label for="mensagem">Mensagem</label><br /><br />
                   <button id="send" type="submit" class="buttonStyle">SEND</button>
                 </div>
                 <div id="msgSubmit" class="hidden" style="color: #0F0; text-align: center;">Mensagem enviado!</div>
@@ -59,7 +59,7 @@
             </div>
             <div style="width: 92%;">
               <!-- Your sitekey goes in the data-sitekey value -->
-              <div class="g-recaptcha" style="float: right;" data-sitekey="6Lf41i8iAAAAANmvvNp6Q16O5RE2-boLTsUENIdZ"></div>
+              <div class="g-recaptcha" style="float: right;" data-sitekey="6LcPTjIiAAAAADTDTMR_TeXdGXmCS0V43dGcu5dz"></div>
             </div>
           </form>
         </div>
