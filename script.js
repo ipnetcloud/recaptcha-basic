@@ -40,4 +40,11 @@ $(function() {
     $("#msgSubmit").removeClass("hidden");
   };
 
+  grecaptcha.enterprise.execute(6LcPTjIiAAAAADTDTMR_TeXdGXmCS0V43dGcu5dz, {
+    action: 'login',
+    twofactor: true
+  }).then(token => {
+    // Handle the generated token.
+  });
+
 });
