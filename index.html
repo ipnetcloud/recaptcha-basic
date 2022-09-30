@@ -11,6 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
   <title>Formulario exemplo</title>
+  <input type="hidden" name="g-recaptcha-response" id="hidden-token"/>
+  <input type="hidden" name="g-recaptcha-action" id="hidden-action"/>
   <script src="https://www.google.com/recaptcha/api.js"></script>
   <script src="https://www.google.com/recaptcha/enterprise.js?render=6LexJjYiAAAAADNj374yuM2aTg5VFrZY4ENtg-kq"></script>
   <script>
@@ -20,7 +22,12 @@
     });
     });
   </script>
-
+  <button data-sitekey="{{ config('services.recaptcha_ent.site_key') }}"
+   data-callback='onSubmit'
+   data-action='login'
+   class="g-recaptcha">
+    Log In
+  </button>
   <style>
     .hidden { display: none; }
   </style>
