@@ -1,10 +1,10 @@
 <?php
 //TESTING (returns true every time)
-// Site key: 6LexJjYiAAAAADNj374yuM2aTg5VFrZY4ENtg-kq
-// Secret key: 6LexJjYiAAAAADNj374yuM2aTg5VFrZY4ENtg-kq
+// Site key: 6LcI01AiAAAAALtG6k-l16JnPnKg4_-QqZgNqx2b
+// Secret key: 6LcI01AiAAAAALtG6k-l16JnPnKg4_-QqZgNqx2b
 
 $captcha = $_POST["captcha"]; //response data
-$secret = "6LexJjYiAAAAADNj374yuM2aTg5VFrZY4ENtg-kq"; //your recaptcha secret
+$secret = "6LcI01AiAAAAALtG6k-l16JnPnKg4_-QqZgNqx2b"; //your recaptcha secret
 
 //Recaptcha verification and JSON response decode
 $verify = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha), true);
