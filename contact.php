@@ -4,7 +4,7 @@
 // Secret key: 6Lf41i8iAAAAANmvvNp6Q16O5RE2-boLTsUENIdZ
 
 $captcha = $_POST["captcha"]; //response data
-$secret = "6LcPTjIiAAAAADTDTMR_TeXdGXmCS0V43dGcu5dz"; //your recaptcha secret
+$secret = "6LdWGW8iAAAAAKgN4BbfW8ZVrjRTulX7pKEldwPA"; //your recaptcha secret
 
 //Recaptcha verification and JSON response decode
 $verify = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha), true);
