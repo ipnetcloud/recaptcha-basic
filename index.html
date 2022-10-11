@@ -13,9 +13,10 @@
   <title>Formulario exemplo</title>
   <script src="https://www.google.com/recaptcha/api.js"></script>
   <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdWGW8iAAAAAKgN4BbfW8ZVrjRTulX7pKEldwPA"></script>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdLbG8iAAAAABFrzxKqg9m4gQ_SVx8sQ51KBUu5"></script>
   <script>
   grecaptcha.enterprise.ready(function() {
-      grecaptcha.enterprise.execute('6LdWGW8iAAAAAKgN4BbfW8ZVrjRTulX7pKEldwPA', {action: 'login'}).then(function(token) {
+      grecaptcha.enterprise.execute('6LdLbG8iAAAAABFrzxKqg9m4gQ_SVx8sQ51KBUu5', {action: 'login'}).then(function(token) {
          ...
       });
   });
@@ -59,7 +60,7 @@
             </div>
             <div style="width: 92%;">
               <!-- Your sitekey goes in the data-sitekey value -->
-              <div class="g-recaptcha" style="float: right;" data-sitekey="6LdWGW8iAAAAAKgN4BbfW8ZVrjRTulX7pKEldwPA"></div>
+              <div class="g-recaptcha" style="float: right;" data-sitekey="6LdLbG8iAAAAABFrzxKqg9m4gQ_SVx8sQ51KBUu5"></div>
             </div>
           </form>
         </div>

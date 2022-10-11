@@ -1,7 +1,7 @@
 <?php
 //TESTING (returns true every time)
-// Site key: 6Lf41i8iAAAAANmvvNp6Q16O5RE2-boLTsUENIdZ
-// Secret key: 6Lf41i8iAAAAANmvvNp6Q16O5RE2-boLTsUENIdZ
+// Site key: 6LdLbG8iAAAAABFrzxKqg9m4gQ_SVx8sQ51KBUu5
+// Secret key: 6LdLbG8iAAAAABFrzxKqg9m4gQ_SVx8sQ51KBUu5
 
 $captcha = $_POST["captcha"]; //response data
 $secret = "6LdWGW8iAAAAAKgN4BbfW8ZVrjRTulX7pKEldwPA"; //your recaptcha secret
